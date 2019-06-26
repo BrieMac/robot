@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="595a8797-a1f3-4495-b01d-83afe52897d7" name="Default Changelist" comment="" />
+    <list default="true" id="595a8797-a1f3-4495-b01d-83afe52897d7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/house_robot.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/house_robot.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/house_robot_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/house_robot_spec.rb" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,14 +14,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.28144655">
+    <splitter split-orientation="horizontal" split-proportion="0.4978102">
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/house_robot.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="390">
-                  <caret line="112" lean-forward="true" selection-start-line="92" selection-end-line="112" />
+                <state relative-caret-position="84">
+                  <caret line="99" column="33" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
@@ -24,8 +29,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/spec/house_robot_spec.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-87">
-                  <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+                <state relative-caret-position="105">
+                  <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -37,8 +42,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/spec/house_robot_spec.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="800">
-                  <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+                <state relative-caret-position="83">
+                  <caret line="33" selection-start-line="33" selection-end-line="33" />
                 </state>
               </provider>
             </entry>
@@ -47,11 +52,14 @@
       </split-second>
     </splitter>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/spec/house_robot_spec.rb" />
         <option value="$PROJECT_DIR$/lib/house_robot.rb" />
+        <option value="$PROJECT_DIR$/spec/house_robot_spec.rb" />
       </list>
     </option>
   </component>
@@ -60,6 +68,7 @@
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -94,6 +103,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -122,26 +132,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561519508284</updated>
-      <workItem from="1561519510877" duration="866000" />
+      <workItem from="1561519510877" duration="2603000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="866000" />
+    <option name="totallyTimeSpent" value="2603000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09142857" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.021428572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.35064936" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3181818" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.23896104" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -157,17 +168,17 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spec/house_robot_spec.rb">
+    <entry file="file://$PROJECT_DIR$/lib/house_robot.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-87">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        <state relative-caret-position="84">
+          <caret line="99" column="33" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/house_robot.rb">
+    <entry file="file://$PROJECT_DIR$/spec/house_robot_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="112" lean-forward="true" selection-start-line="92" selection-end-line="112" />
+        <state relative-caret-position="83">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>

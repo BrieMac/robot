@@ -31,24 +31,19 @@ end
 
 # Unit Tests
 
+
 RSpec.describe Move do
   describe '.new' do
     it "takes the direction you want to move as a string" do
       expect(Move.new("south", double)).to be
     end
-
-    it "takes the robots current location as a point" do
-      living_room = Room.new("living_room")
-      point = Point.new(living_room, 1, 1)
-      expect(Move.new("south", point).location).to eql(Point.new(living_room, 1, 2))
-    end
   end
 
-  describe '#update_current_location' do
-    it "updates current location" do
+  describe '#new_location' do
+    it "returns the new location" do
       living_room = Room.new("living_room")
       point = Point.new(living_room, 1, 1)
-      expect(Move.new("north", point).update_current_location).to be
+      expect(Move.new("north", point).new_location).to eq(Point.new(living_room, 1,2))
     end
   end
     context "receives invalid input" do

@@ -35,7 +35,8 @@ end
 
 
 class Point
-  attr_reader :y_coord, :x_coord
+  attr_accessor :y_coord, :x_coord
+  attr_reader :room
 
   def initialize(room, x_coord, y_coord)
     @room = room
@@ -95,18 +96,29 @@ class Move
   class InvalidDirectionError < StandardError
   end
 
-    attr_reader :location
+    attr_reader :point, :direction
 
-  def initialize(direction, location)
+  def initialize(direction, point)
     unless %w[north south east west].include? direction.downcase
       raise InvalidDirectionError
     end
-
-    @location = location
+    @direction = direction
+    @point = point
   end
 
-  def update_current_location
 
-  end
+    def new_location
+      case direction.downcase
+      when "north"
+        point.y_coord += 1
+      when "south"
+        point.y_coord -= 1
+      when "east"
+        point.x_coord += 1
+      when "west"
+        point.x_coord -= 1
+      end
+      Point.new(point.room, point.x_coord, point.y_coord)
+    end
 
 end
