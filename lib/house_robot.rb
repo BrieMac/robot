@@ -92,14 +92,14 @@ end
 
 class Move
 
-  class NoMoreThanOneDirectionCanBeSpecifiedError < StandardError
+  class InvalidDirectionError < StandardError
   end
 
     attr_reader :location
 
   def initialize(direction, location)
-    unless direction.downcase == "north" || "south" || "east" || "west"
-      raise NoMoreThanOneDirectionCanBeSpecifiedError
+    unless %w[north south east west].include? direction.downcase
+      raise InvalidDirectionError
     end
 
     @location = location

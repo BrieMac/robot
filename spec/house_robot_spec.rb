@@ -40,7 +40,7 @@ RSpec.describe Move do
     it "takes the robots current location as a point" do
       living_room = Room.new("living_room")
       point = Point.new(living_room, 1, 1)
-      expect(Move.new("south", point).location).to eql(1, 1)
+      expect(Move.new("south", point).location).to eql(Point.new(living_room, 1, 2))
     end
   end
 
@@ -53,7 +53,8 @@ RSpec.describe Move do
   end
     context "receives invalid input" do
       it "raises an error" do
-        expect{ Move.new("down") }.to raise_error(Move::NoMoreThanOneDirectionCanBeSpecifiedError)
+        point = double
+        expect{ Move.new("diagonally", point) }.to raise_error(Move::InvalidDirectionError)
       end
     end
   end
