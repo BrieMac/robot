@@ -137,6 +137,35 @@ RSpec.describe Point do
       expect(point.x_coord).to eql(4)
     end
   end
+
+  describe '#==' do
+    let(:living_room) { double(name: "living room") }
+    let(:bathroom) { double(name: "bathroom") }
+
+    context 'when the location is different' do
+      it 'returns false' do
+        expect(Point.new(living_room, 2, 2)).to_not eq(Point.new(bathroom, 2,2))
+      end
+    end
+    context 'when the y coordinate is different' do
+      it 'returns false' do
+        expect(Point.new("bathroom", 2, 1)).to_not eq(Point.new("bathroom", 2,2))
+      end
+    end
+    context 'when the x coordinate is different' do
+      it 'returns false' do
+        expect(Point.new("bathroom", 1, 2)).to_not eq(Point.new("bathroom", 2,2))
+      end
+    end
+    context 'when everything is the same' do
+      it 'returns true' do
+        expect(Point.new("bathroom", 2, 2)).to eq(Point.new("bathroom", 2,2))
+
+      end
+
+    end
+  end
+
 end
 
 RSpec.describe Robot do

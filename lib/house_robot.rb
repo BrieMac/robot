@@ -44,6 +44,10 @@ class Point
     @y_coord = y_coord
   end
 
+  def ==(other)
+    coordinates == other.coordinates  && room_name == other.room_name
+  end
+
   def coordinates
     {x: @x_coord, y: @y_coord}
   end

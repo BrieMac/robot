@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="595a8797-a1f3-4495-b01d-83afe52897d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/house_robot.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/house_robot.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spec/house_robot_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/house_robot_spec.rb" afterDir="false" />
@@ -14,14 +13,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4978102">
+    <splitter split-orientation="horizontal" split-proportion="0.35839415">
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/house_robot.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="84">
-                  <caret line="99" column="33" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="33" />
+                <state relative-caret-position="189">
+                  <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -42,8 +41,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/spec/house_robot_spec.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="83">
-                  <caret line="33" selection-start-line="33" selection-end-line="33" />
+                <state relative-caret-position="129">
+                  <caret line="141" column="37" lean-forward="true" selection-start-line="141" selection-start-column="37" selection-end-line="141" selection-end-column="37" />
                 </state>
               </provider>
             </entry>
@@ -132,12 +131,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561519508284</updated>
-      <workItem from="1561519510877" duration="2603000" />
+      <workItem from="1561519510877" duration="4721000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2603000" />
+    <option name="totallyTimeSpent" value="4721000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -170,15 +169,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lib/house_robot.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="99" column="33" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="33" />
+        <state relative-caret-position="189">
+          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/house_robot_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="129">
+          <caret line="141" column="37" lean-forward="true" selection-start-line="141" selection-start-column="37" selection-end-line="141" selection-end-column="37" />
         </state>
       </provider>
     </entry>
