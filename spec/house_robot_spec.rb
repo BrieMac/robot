@@ -149,23 +149,20 @@ RSpec.describe Point do
     end
     context 'when the y coordinate is different' do
       it 'returns false' do
-        expect(Point.new("bathroom", 2, 1)).to_not eq(Point.new("bathroom", 2,2))
+        expect(Point.new(bathroom, 2, 1)).to_not eq(Point.new(bathroom, 2,2))
       end
     end
     context 'when the x coordinate is different' do
       it 'returns false' do
-        expect(Point.new("bathroom", 1, 2)).to_not eq(Point.new("bathroom", 2,2))
+        expect(Point.new(bathroom, 1, 2)).to_not eq(Point.new(bathroom, 2,2))
       end
     end
     context 'when everything is the same' do
       it 'returns true' do
-        expect(Point.new("bathroom", 2, 2)).to eq(Point.new("bathroom", 2,2))
-
+        expect(Point.new(bathroom, 2, 2)).to eq(Point.new(bathroom, 2,2))
       end
-
     end
   end
-
 end
 
 RSpec.describe Robot do
