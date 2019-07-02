@@ -24,36 +24,12 @@ RSpec.describe 'our robot application' do
     fredrick = Robot.new("Fredrick", point, double)
     expect(fredrick.move("north")).to eql("I'm in the Living Room at co-ordinate 0, 1.")
     expect(fredrick.move("east")).to eql("I'm in the Living Room at co-ordinate 1, 1.")
-    expect(fredrick.move("south")).to eql("I'm in the Living Room at co-ordinate 1, 0.")
+    expect(fredrick.move("south",)).to eql("I'm in the Living Room at co-ordinate 1, 0.")
     expect(fredrick.move("west")).to eql("I'm in the Living Room at co-ordinate 0, 0.")
   end
 end
 
 # Unit Tests
-
-
-RSpec.describe Move do
-  describe '.new' do
-    it "takes the direction you want to move as a string" do
-      expect(Move.new("south", double)).to be
-    end
-  end
-
-  describe '#new_location' do
-    it "returns the new location" do
-      living_room = Room.new("living_room")
-      point = Point.new(living_room, 1, 1)
-      expect(Move.new("north", point).new_location).to eq(Point.new(living_room, 1,2))
-    end
-  end
-    context "receives invalid input" do
-      it "raises an error" do
-        point = double
-        expect{ Move.new("diagonally", point) }.to raise_error(Move::InvalidDirectionError)
-      end
-    end
-  end
-
 
 RSpec.describe Battery do
   describe ".new" do
@@ -108,36 +84,6 @@ RSpec.describe Point do
     end
   end
 
-  describe '#update_location' do
-    it "when given the string north, it increases the y coordinate by one" do
-      point = Point.new(double, 5, 7)
-      point.update_location("north")
-
-      expect(point.y_coord).to eql(8)
-    end
-
-    it "when given the string south, it decreases the y coordinate by one" do
-      point = Point.new(double, 5, 7)
-      point.update_location("south")
-
-      expect(point.y_coord).to eql(6)
-    end
-
-    it "when given the string east, it increases the x coordinate by one" do
-      point = Point.new(double, 5, 7)
-      point.update_location("east")
-
-      expect(point.x_coord).to eql(6)
-    end
-
-    it "when given the string west, it decreases the x coordinate by one" do
-      point = Point.new(double, 5, 7)
-      point.update_location("west")
-
-      expect(point.x_coord).to eql(4)
-    end
-  end
-
   describe '#==' do
     let(:living_room) { double(name: "living room") }
     let(:bathroom) { double(name: "bathroom") }
@@ -160,6 +106,15 @@ RSpec.describe Point do
     context 'when everything is the same' do
       it 'returns true' do
         expect(Point.new(bathroom, 2, 2)).to eq(Point.new(bathroom, 2,2))
+      end
+    end
+
+    describe '#update_location' do
+      context 'when axis value is invalid' do
+        it 'raises an error' do
+          point = Point.new(double, 1, 1)
+          expect{ point.update_location('v', 1) }.to raise_error(Point::AxisMustBeXOrYError)
+        end
       end
     end
   end

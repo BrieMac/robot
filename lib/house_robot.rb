@@ -1,6 +1,6 @@
 class Robot
 
-  attr_reader :battery
+  attr_reader :battery, :current_point
 
   def initialize(name, point, battery)
     @name = name
@@ -18,7 +18,8 @@ class Robot
   end
 
   def move(direction)
-    @current_point.update_location(direction)
+    updated_location = Move.new(direction, current_point)
+    updated_location.new_location
     location
   end
 end
@@ -35,6 +36,11 @@ end
 
 
 class Point
+
+  class AxisMustBeXOrYError < StandardError
+  end
+
+
   attr_accessor :y_coord, :x_coord
   attr_reader :room
 
@@ -60,20 +66,14 @@ class Point
     "#{room_name} at co-ordinate #{@x_coord}, #{@y_coord}"
   end
 
-  def update_location(direction)
-    case direction.downcase
-      when "north"
-        @y_coord += 1
-      when "south"
-        @y_coord -= 1
-      when "east"
-        @x_coord += 1
-      when "west"
-        @x_coord -= 1
+  def update_location(axis, increment)
+      if axis == 'x'
+        @x_coord += increment
+      elsif axis == 'y'
+        @y_coord += increment
       else
-        # TODO: Raise expection here
-      puts "Raise exception here"
-    end
+        raise AxisMustBeXOrYError
+      end
   end
 end
 
@@ -110,19 +110,17 @@ class Move
     @point = point
   end
 
-
-    def new_location
-      case direction.downcase
-      when "north"
-        point.y_coord += 1
-      when "south"
-        point.y_coord -= 1
-      when "east"
-        point.x_coord += 1
-      when "west"
-        point.x_coord -= 1
-      end
-      Point.new(point.room, point.x_coord, point.y_coord)
+  def new_location
+    case direction.downcase
+    when "north"
+      point.update_location('y', 1)
+    when "south"
+      point.update_location('y', -1)
+    when "east"
+      point.update_location('x', 1)
+    when "west"
+      point.update_location('x', -1)
     end
-
+    Point.new(point.room, point.x_coord, point.y_coord)
+  end
 end
