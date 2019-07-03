@@ -1,7 +1,7 @@
 require 'move'
 
 RSpec.describe Move do
-  let(:point) {Point.new(double, 1, 1)}
+  let(:point) {Point.new(double(name: "Living Room"), 1, 1)}
   let (:battery) {Battery.new(0.5)}
 
   describe '.new' do
@@ -54,30 +54,16 @@ RSpec.describe Move do
       expect(point.x_coord).to eql(0)
     end
 
-    it "raises an error when a move has already been made" do
-      move = Move.new("north", point, battery)
-      move.location_has_been_updated = true
-
-      expect{ move.new_location }.to raise_error(Move::LocationHasAlreadyBeenUpdatedError)
-    end
-
     it "updates @location_has_been_updated when location is updated" do
       move = Move.new("north", point, battery)
       move.new_location
       expect(move.location_has_been_updated).to be(true)
     end
 
-    it "raises an error when #update_to_new_location is called twice" do
-        move = Move.new("north", point, battery)
-        move.new_location
-        expect{ move.new_location }.to raise_error(Move::LocationHasAlreadyBeenUpdatedError)
+    it "returns the same location if called multiple times" do
+      new_point = Point.new(double(name: "Living Room"), 1, 2)
+      move = Move.new("north", point, battery)
+      move.new_location
+      expect(move.new_location).to eq(new_point)
     end
-
-#WHY DOES THIS NOT WORK?
-    # it "only allows #update_to_new_location once" do
-    #     move = Move.new("north", point)
-    #     expect(move).to receive(:update_to_new_location).once
-    #     move.new_location
-    #     move.new_location
-    # end
   end

@@ -1,4 +1,3 @@
-require 'move'
 require 'point'
 require 'robot'
 require 'room'
@@ -31,11 +30,16 @@ class Move
     private
 
       def movement_controller
-        unless location_has_been_updated == false
-           raise LocationHasAlreadyBeenUpdatedError
-        end
+        # unless location_has_been_updated == false
+        #    raise LocationHasAlreadyBeenUpdatedError
+        # end
         reduce_battery
-        update_to_new_location
+
+        if location_has_been_updated == false
+          update_to_new_location
+        else
+          @point
+        end
       end
 
       def reduce_battery
@@ -54,6 +58,6 @@ class Move
         when "west"
           point.update_coordinates('x', -1)
         end
-        Point.new(point.room, point.x_coord, point.y_coord)
+        @point = Point.new(point.room, point.x_coord, point.y_coord)
       end
 end

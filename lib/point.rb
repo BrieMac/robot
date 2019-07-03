@@ -1,5 +1,4 @@
 require 'move'
-require 'point'
 require 'robot'
 require 'room'
 require 'battery'

@@ -41,4 +41,13 @@ RSpec.describe 'our robot application' do
   fredrick.move("west")
   expect(fredrick.battery_level).to eql("My battery is at 99%")
   end
+
+  it "tells us our forecast battery level when a certain destination is reached" do
+    living_room = Room.new("Living Room")
+    battery = Battery.new(1.0)
+    current_location = Point.new(living_room, 0, 0)
+    future_location = Point.new(living_room, 3, 5)
+    fredrick = Robot.new("Fredrick", current_location, battery)
+    expect((fredrick.plan_trip(future_location)).forecast_battery_level).to eql("My battery will be at 80% when I reach the co-cordinate 3, 5 in the Living Room.")
+  end
 end

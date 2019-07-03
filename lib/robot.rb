@@ -2,6 +2,7 @@ require 'move'
 require 'point'
 require 'room'
 require 'battery'
+require 'trip'
 
 class Robot
 
@@ -25,5 +26,10 @@ class Robot
     updated_location = Move.new(direction, current_point, battery)
     updated_location.new_location
     location
+  end
+
+  def plan_trip(future_location)
+    trip = Trip.new(@current_point, future_location)
+
   end
 end
