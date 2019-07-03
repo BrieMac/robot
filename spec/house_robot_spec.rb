@@ -21,11 +21,21 @@ RSpec.describe 'our robot application' do
   it "can move north, south, east and west" do
     living_room = Room.new("Living Room")
     point = Point.new(living_room, 0, 0)
-    fredrick = Robot.new("Fredrick", point, double)
+    battery = Battery.new(0.5)
+    fredrick = Robot.new("Fredrick", point, battery)
     expect(fredrick.move("north")).to eql("I'm in the Living Room at co-ordinate 0, 1.")
     expect(fredrick.move("east")).to eql("I'm in the Living Room at co-ordinate 1, 1.")
     expect(fredrick.move("south",)).to eql("I'm in the Living Room at co-ordinate 1, 0.")
     expect(fredrick.move("west")).to eql("I'm in the Living Room at co-ordinate 0, 0.")
+  end
+
+  it "reduces the battery level by 1% for each movement taken" do
+  living_room = Room.new("Living Room")
+  battery = Battery.new(1.0)
+  point = Point.new(living_room, 0, 0)
+  fredrick = Robot.new("Fredrick", point, battery)
+  fredrick.move("west")
+  expect(fredrick.battery_level).to eql("My battery is at 99%")
   end
 end
 
@@ -41,6 +51,12 @@ RSpec.describe Battery do
   describe "#battery_percentage" do
     it "returns the current percentage of the battery" do
       expect(Battery.new(0.7).percentage).to eql("70%")
+    end
+  end
+
+  describe "#reduce_battery" do
+    it "reduces the level of the battery" do
+      expect(Battery.new(1.0).reduce_battery_level).to eql(99.0)
     end
   end
 end
@@ -113,7 +129,7 @@ RSpec.describe Point do
       context 'when axis value is invalid' do
         it 'raises an error' do
           point = Point.new(double, 1, 1)
-          expect{ point.update_location('v', 1) }.to raise_error(Point::AxisMustBeXOrYError)
+          expect{ point.update_coordinates('v', 1) }.to raise_error(Point::AxisMustBeXOrYError)
         end
       end
     end
