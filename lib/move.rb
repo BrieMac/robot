@@ -7,11 +7,7 @@ class Move
   class InvalidDirectionError < StandardError
   end
 
-  class LocationHasAlreadyBeenUpdatedError < StandardError
-  end
-
     attr_reader :point, :direction, :battery
-    attr_accessor :location_has_been_updated
 
   def initialize(direction, point, battery)
     unless %w[north south east west].include? direction.downcase
@@ -20,44 +16,29 @@ class Move
     @direction = direction
     @point = point
     @battery = battery
-    @location_has_been_updated = false
   end
 
   def new_location
-    movement_controller
+    reduce_battery
+    updated_location
   end
 
-    private
+  private
 
-      def movement_controller
-        # unless location_has_been_updated == false
-        #    raise LocationHasAlreadyBeenUpdatedError
-        # end
-        reduce_battery
+  def reduce_battery
+    @battery.reduce_battery_level
+  end
 
-        if location_has_been_updated == false
-          update_to_new_location
-        else
-          @point
-        end
-      end
-
-      def reduce_battery
-        @battery.reduce_battery_level
-      end
-
-      def update_to_new_location
-        @location_has_been_updated = true
-        case direction.downcase
-        when "north"
-          point.update_coordinates('y', 1)
-        when "south"
-          point.update_coordinates('y', -1)
-        when "east"
-          point.update_coordinates('x', 1)
-        when "west"
-          point.update_coordinates('x', -1)
-        end
-        @point = Point.new(point.room, point.x_coord, point.y_coord)
-      end
+  def updated_location
+    case direction.downcase
+    when "north"
+      Point.new(point.room, point.x_coord, point.y_coord + 1)
+    when "south"
+      Point.new(point.room, point.x_coord, point.y_coord - 1)
+    when "east"
+      Point.new(point.room, point.x_coord + 1, point.y_coord)
+    when "west"
+      Point.new(point.room, point.x_coord - 1, point.y_coord)
+    end
+  end
 end

@@ -28,42 +28,33 @@ RSpec.describe Move do
 
     it "when given the string north, it increases the y coordinate by one" do
       move = Move.new("north", point, battery)
-      move.new_location
 
-      expect(point.y_coord).to eql(2)
+      expect(move.new_location.y_coord).to eql(2)
     end
 
     it "when given the string south, it decreases the y coordinate by one" do
       move = Move.new("south", point, battery)
-      move.new_location
 
-      expect(point.y_coord).to eql(0)
+      expect(move.new_location.y_coord).to eql(0)
     end
 
     it "when given the string east, it increases the x coordinate by one" do
       move = Move.new("east", point, battery)
-      move.new_location
 
-      expect(point.x_coord).to eql(2)
+      expect(move.new_location.x_coord).to eql(2)
     end
 
     it "when given the string west, it decreases the x coordinate by one" do
       move = Move.new("west", point, battery)
-      move.new_location
 
-      expect(point.x_coord).to eql(0)
-    end
-
-    it "updates @location_has_been_updated when location is updated" do
-      move = Move.new("north", point, battery)
-      move.new_location
-      expect(move.location_has_been_updated).to be(true)
+      expect(move.new_location.x_coord).to eql(0)
     end
 
     it "returns the same location if called multiple times" do
       new_point = Point.new(double(name: "Living Room"), 1, 2)
       move = Move.new("north", point, battery)
       move.new_location
+
       expect(move.new_location).to eq(new_point)
     end
   end
