@@ -2,6 +2,7 @@ require 'point'
 require 'robot'
 require 'room'
 require 'battery'
+
 class Move
 
   class InvalidDirectionError < StandardError

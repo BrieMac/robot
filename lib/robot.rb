@@ -23,8 +23,7 @@ class Robot
   end
 
   def move(direction)
-    updated_location = Move.new(direction, current_point, battery)
-    updated_location.new_location
+    @current_point = Move.new(direction, current_point, battery).new_location
     location
   end
 
