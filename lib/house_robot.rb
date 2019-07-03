@@ -100,7 +100,11 @@ class Move
   class InvalidDirectionError < StandardError
   end
 
+  class LocationHasAlreadyBeenUpdated < StandardError
+  end
+
     attr_reader :point, :direction
+    attr_accessor :location_has_been_updated
 
   def initialize(direction, point)
     unless %w[north south east west].include? direction.downcase
@@ -108,19 +112,30 @@ class Move
     end
     @direction = direction
     @point = point
+    @location_has_been_updated = false
   end
 
   def new_location
-    case direction.downcase
-    when "north"
-      point.update_location('y', 1)
-    when "south"
-      point.update_location('y', -1)
-    when "east"
-      point.update_location('x', 1)
-    when "west"
-      point.update_location('x', -1)
+    unless location_has_been_updated == false
+       raise LocationHasAlreadyBeenUpdated
     end
-    Point.new(point.room, point.x_coord, point.y_coord)
+    update_to_new_location
   end
+
+    private
+
+      def update_to_new_location
+        @location_has_been_updated = true
+        case direction.downcase
+        when "north"
+          point.update_location('y', 1)
+        when "south"
+          point.update_location('y', -1)
+        when "east"
+          point.update_location('x', 1)
+        when "west"
+          point.update_location('x', -1)
+        end
+        Point.new(point.room, point.x_coord, point.y_coord)
+      end
 end
