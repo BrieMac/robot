@@ -1,4 +1,4 @@
-require 'house_robot'
+require 'move'
 
 RSpec.describe Move do
   let(:point) {Point.new(double, 1, 1)}
