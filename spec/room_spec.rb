@@ -9,7 +9,7 @@ RSpec.describe Room do
 
   describe "#name" do
     it "returns the name of the room" do
-      expect(Room.new("Bedroom").name).to eql("Bedroom")
+      expect(Room.new("Bedroom").name).to eq("Bedroom")
     end
   end
 end

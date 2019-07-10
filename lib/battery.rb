@@ -5,20 +5,27 @@ require 'room'
 
 class Battery
 
-  def initialize(sensor_reading)
-    @battery_level = calculate_battery_level(sensor_reading)
+  attr_reader :battery_level
+
+  def initialize(sensor_reading = rand(0.1..1.0))
+    @starting_battery_level = calculate_starting_battery_level(sensor_reading)
+    @battery_level ||= @starting_battery_level
   end
 
-  def percentage
+  def to_percentage
      "#{@battery_level.to_int}%"
   end
 
-  def reduce_battery_level
+  def actual_drain
+    @battery_level -= rand(0.5..2.0)
+  end
+
+  def forecast_drain
     @battery_level -= 1
   end
 
     private
-      def calculate_battery_level(sensor_reading)
+      def calculate_starting_battery_level(sensor_reading)
         sensor_reading * 100
       end
 end

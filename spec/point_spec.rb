@@ -8,19 +8,19 @@ RSpec.describe Point do
 
   describe "#coordinates" do
     it "returns a hash with x and y values" do
-      expect(Point.new(double, 5, 7).coordinates).to eql(x: 5, y: 7)
+      expect(Point.new(double, 5, 7).coordinates).to eq(x: 5, y: 7)
     end
   end
 
   describe "#room_name" do
     it "returns the name of the room" do
-      expect(Point.new(double(name: "Bathroom"), 5, 7).room_name).to eql("Bathroom")
+      expect(Point.new(double(name: "Bathroom"), 5, 7).room_name).to eq("Bathroom")
     end
   end
 
   describe "#to_s" do
     it "returns a string with the robot's current location" do
-      expect(Point.new(double(name: "Bathroom"), 5, 7).to_s).to eql("Bathroom at co-ordinate 5, 7")
+      expect(Point.new(double(name: "Bathroom"), 5, 7).to_s).to eq("Bathroom at co-ordinate 5, 7")
     end
   end
 

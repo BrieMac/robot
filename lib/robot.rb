@@ -19,16 +19,20 @@ class Robot
   end
 
   def battery_level
-    "My battery is at #{battery.percentage}"
+    "My battery is at #{battery.to_percentage}"
   end
 
   def move(direction)
-    @current_point = Move.new(direction, current_point, battery).new_location
+    # trip = Trip.new(current_location, future_location, battery)
+    # Need to split this next line because we need to create the trip before we update the current point value.
+    move = Move.new(direction, current_point, battery).new_location
+    # trip = Trip.new(current_location, future_location, battery.battery_level)
+    @current_point = move
+    # Ask the trip what impact this is going to have on the battery
     location
   end
 
   def plan_trip(future_location)
-    trip = Trip.new(@current_point, future_location)
-
+    Trip.new(@current_point, future_location, battery).forecast
   end
 end

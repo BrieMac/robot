@@ -20,15 +20,10 @@ class Move
   end
 
   def new_location
-    reduce_battery
     updated_location
   end
 
   private
-
-  def reduce_battery
-    @battery.reduce_battery_level
-  end
 
   def updated_location
     case direction.downcase
