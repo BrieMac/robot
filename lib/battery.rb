@@ -1,5 +1,4 @@
 class Battery
-
   attr_reader :battery_level, :sensor_reading
 
   def initialize(sensor_reading = rand(0.1..1.0))
@@ -8,7 +7,7 @@ class Battery
   end
 
   def to_percentage
-     "#{@battery_level.to_int}%"
+    "#{@battery_level.to_int}%"
   end
 
   def actual_drain
@@ -19,8 +18,9 @@ class Battery
     @battery_level -= 1
   end
 
-    private
-      def calculate_starting_battery_level
-        sensor_reading * 100
-      end
+  private
+
+  def calculate_starting_battery_level
+    sensor_reading * 100
+  end
 end
