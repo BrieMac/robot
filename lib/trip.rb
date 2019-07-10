@@ -15,14 +15,14 @@ class Trip
 
   def forecast
     if forecast_battery_level > 0
-      "When I arrive at the #{future_location.to_s} I will have #{forecast_battery_level.to_i}% battery remaining"
+      "When I arrive at #{future_location.to_s} I will have #{forecast_battery_level.to_i}% battery remaining"
     else
-      "I don't have sufficient battery to travel to the #{future_location.to_s}"
+      "I don't have sufficient battery to travel to #{future_location.to_s}"
     end
   end
 
   def trip_length
-    (future_location.x_coord + future_location.y_coord) - (current_location.x_coord + current_location.y_coord)
+    (future_location.x_coordinate + future_location.y_coordinate) - (current_location.x_coordinate + current_location.y_coordinate)
   end
 
   def forecast_battery_level

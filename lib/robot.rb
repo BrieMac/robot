@@ -1,6 +1,6 @@
 require 'move'
 require 'point'
-require 'room'
+
 require 'battery'
 require 'trip'
 
@@ -15,7 +15,7 @@ class Robot
   end
 
   def location
-    "I'm in the #{current_point.to_s}."
+    "I'm at #{current_point.to_s}."
   end
 
   def battery_level

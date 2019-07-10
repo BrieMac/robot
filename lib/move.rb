@@ -22,13 +22,13 @@ class Move
   def updated_location
     case direction
     when 'north'
-      Point.new(point.room, point.x_coord, point.y_coord + 1)
+      Point.new(point.x_coordinate, point.y_coordinate + 1)
     when 'south'
-      Point.new(point.room, point.x_coord, point.y_coord - 1)
+      Point.new(point.x_coordinate, point.y_coordinate - 1)
     when 'east'
-      Point.new(point.room, point.x_coord + 1, point.y_coord)
+      Point.new(point.x_coordinate + 1, point.y_coordinate)
     when 'west'
-      Point.new(point.room, point.x_coord - 1, point.y_coord)
+      Point.new(point.x_coordinate - 1, point.y_coordinate)
     end
   end
 end
