@@ -1,15 +1,10 @@
-require 'move'
-require 'point'
-require 'robot'
-require 'room'
-
 class Battery
 
-  attr_reader :battery_level
+  attr_reader :battery_level, :sensor_reading
 
   def initialize(sensor_reading = rand(0.1..1.0))
-    @starting_battery_level = calculate_starting_battery_level(sensor_reading)
-    @battery_level ||= @starting_battery_level
+    @sensor_reading = sensor_reading
+    @battery_level ||= calculate_starting_battery_level
   end
 
   def to_percentage
@@ -25,7 +20,7 @@ class Battery
   end
 
     private
-      def calculate_starting_battery_level(sensor_reading)
+      def calculate_starting_battery_level
         sensor_reading * 100
       end
 end
