@@ -1,11 +1,6 @@
 require 'point'
 
 RSpec.describe Point do
-  describe ".new" do
-    it "takes a Room, an x co-ordinate and a y co-ordinate" do
-      expect(Point.new(5, 5)).to be
-    end
-  end
 
   describe "#coordinates" do
     it "returns a hash with x and y values" do
@@ -30,18 +25,9 @@ RSpec.describe Point do
         expect(Point.new(1, 2)).to_not eq(Point.new(2,2))
       end
     end
-    context 'when everything is the same' do
+    context 'when all attributes are the same' do
       it 'returns true' do
-        expect(Point.new(2, 2)).to eq(Point.new(2,2))
-      end
-    end
-
-    describe '#update_location' do
-      context 'when axis value is invalid' do
-        it 'raises an error' do
-          point = Point.new(1, 1)
-          expect{ point.update_coordinates('v', 1) }.to raise_error(Point::AxisMustBeXOrYError)
-        end
+        expect(Point.new(2, 2)).to eq(Point.new(2, 2))
       end
     end
   end
