@@ -25,7 +25,7 @@ class Robot
   def move(direction)
     # trip = Trip.new(current_location, future_location, battery)
     # Need to split this next line because we need to create the trip before we update the current point value.
-    move = Move.new(direction, current_point, battery).new_location
+    move = Move.new(direction, current_point).new_location
     # trip = Trip.new(current_location, future_location, battery.battery_level)
     @current_point = move
     # Ask the trip what impact this is going to have on the battery

@@ -1,60 +1,48 @@
 require 'move'
 
 RSpec.describe Move do
-  let(:point) {Point.new(double(name: "Living Room"), 1, 1)}
-  let (:battery) {Battery.new(0.5)}
+  let(:living_room) { Room.new('Living Room') }
+  let(:point) { Point.new(double(name: 'Living Room'), 1, 1) }
 
   describe '.new' do
-    it "takes the direction you want to move as a string" do
-      expect(Move.new("south", double, battery)).to be
+    context 'receives an invalid direction' do
+      it 'raises an error' do
+        expect { Move.new('diagonally', double) }.to raise_error(Move::InvalidDirectionError)
+      end
     end
   end
 
   describe '#new_location' do
-    context "receives valid input"
-      it "returns the new location" do
-        living_room = Room.new("living_room")
-         point = Point.new(living_room, 1, 1)
-        expect(Move.new("north", point, battery).new_location).to eq(Point.new(living_room, 1,2))
-      end
+    it 'returns the new location' do
+      expect(Move.new('north', point).new_location).to eq(Point.new(living_room, 1, 2))
     end
 
-    context "receives invalid input" do
-      it "raises an error" do
-        point = double
-        expect{ Move.new("diagonally", point, battery) }.to raise_error(Move::InvalidDirectionError)
-      end
-    end
-
-    it "when given the string north, it increases the y coordinate by one" do
-      move = Move.new("north", point, battery)
-
+    it 'when given the string north, it increases the y coordinate by one' do
+      move = Move.new('north', point)
       expect(move.new_location.y_coord).to eq(2)
     end
 
-    it "when given the string south, it decreases the y coordinate by one" do
-      move = Move.new("south", point, battery)
-
+    it 'when given the string south, it decreases the y coordinate by one' do
+      move = Move.new('south', point)
       expect(move.new_location.y_coord).to eq(0)
     end
 
-    it "when given the string east, it increases the x coordinate by one" do
-      move = Move.new("east", point, battery)
-
+    it 'when given the string east, it increases the x coordinate by one' do
+      move = Move.new('east', point)
       expect(move.new_location.x_coord).to eq(2)
     end
 
-    it "when given the string west, it decreases the x coordinate by one" do
-      move = Move.new("west", point, battery)
-
+    it 'when given the string west, it decreases the x coordinate by one' do
+      move = Move.new('west', point)
       expect(move.new_location.x_coord).to eq(0)
     end
 
-    it "returns the same location if called multiple times" do
-      new_point = Point.new(double(name: "Living Room"), 1, 2)
-      move = Move.new("north", point, battery)
+    it 'returns the same location if called multiple times' do
+      updated_point = Point.new(double(name: 'Living Room'), 1, 2)
+      move = Move.new('north', point)
       move.new_location
-
-      expect(move.new_location).to eq(new_point)
+      move.new_location
+      expect(move.new_location).to eq(updated_point)
     end
   end
+end
