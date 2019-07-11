@@ -1,12 +1,6 @@
-require 'move'
-require 'point'
-
-require 'battery'
-require 'trip'
-
 class Robot
 
-  attr_reader :battery, :current_point
+  attr_reader :battery, :current_point, :name
 
   def initialize(name, point, battery)
     @name = name
@@ -14,8 +8,12 @@ class Robot
     @battery = battery
   end
 
+  def introduce
+    "I'm #{name}"
+  end
+
   def location
-    "I'm at #{current_point.to_s}."
+    "I'm at #{current_point}."
   end
 
   def battery_level
@@ -23,16 +21,11 @@ class Robot
   end
 
   def move(direction)
-    # trip = Trip.new(current_location, future_location, battery)
-    # Need to split this next line because we need to create the trip before we update the current point value.
-    move = Move.new(direction, current_point).new_location
-    # trip = Trip.new(current_location, future_location, battery.battery_level)
-    @current_point = move
-    # Ask the trip what impact this is going to have on the battery
+    @current_point = Move.new(direction, current_point).new_location
     location
   end
 
   def plan_trip(future_location)
-    Trip.new(@current_point, future_location, battery).forecast
+    Trip.new(current_point, future_location, battery).forecast
   end
 end

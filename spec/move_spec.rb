@@ -40,6 +40,7 @@ RSpec.describe Move do
 
     context 'when coordinates are negative numbers' do
       let(:point) { Point.new(-12, -12) }
+
       it 'when given the string north, it increases the y coordinate by one' do
         move = Move.new('north', point)
         expect(move.new_location.y_coordinate).to eq(-11)
@@ -60,8 +61,9 @@ RSpec.describe Move do
         expect(move.new_location.x_coordinate).to eq(-13)
       end
     end
+
     it 'returns the same location if called multiple times' do
-      updated_point = Point.new( 1, 2)
+      updated_point = Point.new(1, 2)
       move = Move.new('north', point)
       move.new_location
       move.new_location
