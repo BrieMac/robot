@@ -27,9 +27,9 @@ class Trip
     battery.battery_level
   end
 
-  private
+private
 
   def trip_length
-    (future_location.x_coordinate + future_location.y_coordinate) - (current_location.x_coordinate + current_location.y_coordinate)
+    ((future_location.x_coordinate + future_location.y_coordinate) - (current_location.x_coordinate + current_location.y_coordinate)).abs
   end
 end

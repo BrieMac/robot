@@ -1,7 +1,7 @@
 class Robot
   attr_reader :battery, :current_point, :name
 
-  def initialize(name, point, battery)
+  def initialize(name, point = Point.new(0, 0), battery = Battery.new)
     @name = name
     @current_point = point
     @battery = battery

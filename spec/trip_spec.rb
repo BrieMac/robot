@@ -30,6 +30,16 @@ RSpec.describe Trip do
         expect(trip.forecast).to eq("I don't have sufficient battery to travel to co-ordinate 20, 80")
       end
     end
+
+    context 'if the coordinates are negative numbers' do
+      let(:battery) { Battery.new(0.5) }
+      let(:current_location) { Point.new(0, 0) }
+      let(:future_location) { Point.new(-5, -5) }
+
+      it 'drains the battery the correct number of times' do
+        expect(Trip.new(current_location, future_location, battery).forecast_battery_level).to eq(40.00)
+      end
+    end
   end
 
   describe '#forecast_battery_level' do
