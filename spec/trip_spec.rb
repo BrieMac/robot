@@ -31,13 +31,23 @@ RSpec.describe Trip do
       end
     end
 
-    context 'if the coordinates are negative numbers' do
+    context 'if the future coordinates are negative numbers' do
       let(:battery) { Battery.new(0.5) }
       let(:current_location) { Point.new(0, 0) }
       let(:future_location) { Point.new(-5, -5) }
 
       it 'drains the battery the correct number of times' do
         expect(Trip.new(current_location, future_location, battery).forecast_battery_level).to eq(40.00)
+      end
+    end
+
+    context 'if the future coordinates are negative numbers and the current coordinates are positive' do
+      let(:battery) { Battery.new(0.5) }
+      let(:current_location) { Point.new(3, 3) }
+      let(:future_location) { Point.new(-5, -5) }
+
+      it 'drains the battery the correct number of times' do
+        expect(Trip.new(current_location, future_location, battery).forecast_battery_level).to eq(34.00)
       end
     end
   end
