@@ -19,17 +19,19 @@ puts robot.location
 puts robot.battery_level
 20.times { print '#' }
 puts "\n"
-puts "You can ask #{name} to move to a new location by giving it x, y coordinates"
+puts "You can ask #{name} to move to a new location by giving it x and y coordinates:"
 puts "\n"
-puts "Please give #{name} an x coordinate"
+puts "Please give #{name} an x coordinate:"
 
 x = gets.chomp.to_i
 
-puts "Please give #{name} a y coordinate"
+puts "Please give #{name} a y coordinate:"
 
 y = gets.chomp.to_i
 
 future_location = Point.new(x, y)
+puts "\n"
 20.times { print '#' }
+puts "\n"
 puts robot.plan_trip(future_location)
 20.times { print '#' }
